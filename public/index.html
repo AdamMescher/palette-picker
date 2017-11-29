@@ -1,39 +1,92 @@
+<!doctype html>
 <html>
   <head>
     <link href="./css/normalize.css" type="text/css" rel="stylesheet" />
     <link href="./css/styles.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Arvo|Open+Sans" rel="stylesheet">
   </head>
   <body>
-    <header></header>
+    <header>
+      <section class="logo-container">
+        <article class="logo-icon">
+          <img src="./assets/icons/icon-five-blade-aperture-logo-bright.svg" alt="logo" />
+        </article>
+        <article class="logo-wordmark">
+          <span>palette picker</span>
+        </article>
+      </section>
+    </header>
     <main>
-      <section class="main-header-container"></section>
-      <section class="project-card-container">
-        <article class="palette-card">
-          <div class="palette-card-colors-container">
-            <div class="color-one">
-              <span>#3A606E</span>
+        <section class="color-generator-container">
+          <img class="cg-apeture" src="./assets/icons/icon-five-blade-aperture-logo-blue.svg" alt="thing" />
+          <button class="cg-generate-new-palette-button"></button>
+          <img class="cg-arrows-icon" src="./assets/icons/icon-arrows-white-outline.svg" alt="icon of arrows in a circle" />
+      </section>
+    </main>
+    <footer>
+      <section class="add-project-container">
+        <button class="add-project-button">
+          <img src="./assets/icons/icon-plus-button.svg" alt="circle with plus sign in center" />
+        </button>
+      </section>
+      <section class="all-projects-container">
+        <article class="project-card">
+          <div class="project-card-container">
+            <div class="palette-card">
+              <div class="palette-card-colors-container">
+                <div class="color-one">
+                  <span>#3A606E</span>
+                </div>
+                <div class="color-two">
+                  <span>#607B7D</span>
+                </div>
+                <div class="color-three">
+                  <span>#838E82</span>
+                </div>
+                <div class="color-four">
+                  <span>#AAAE8E</span>
+                </div>
+                <div class="color-five">
+                  <span>#C1EDCC</span>
+                </div>
+              </div>
+              <div class="palette-card-title">
+                <span>Palette Title</span>
+              </div>
             </div>
-            <div class="color-two">
-              <span>#607B7D</span>
+            <div class="palette-card">
+              <div class="palette-card-colors-container">
+                <div class="color-one">
+                  <span>#3A606E</span>
+                </div>
+                <div class="color-two">
+                  <span>#607B7D</span>
+                </div>
+                <div class="color-three">
+                  <span>#838E82</span>
+                </div>
+                <div class="color-four">
+                  <span>#AAAE8E</span>
+                </div>
+                <div class="color-five">
+                  <span>#C1EDCC</span>
+                </div>
+              </div>
+              <div class="palette-card-title">
+                <span>Palette Title</span>
+              </div>
             </div>
-            <div class="color-three">
-              <span>#838E82</span>
-            </div>
-            <div class="color-four">
-              <span>#AAAE8E</span>
-            </div>
-            <div class="color-five">
-              <span>#C1EDCC</span>
+            <div class="project-card-add-new-pallete">
+              <button class="add-palette-to-project-button"></button>
             </div>
           </div>
-          <div class="palette-card-title">
+          <div class="project-card-title">
             <span>Project Title</span>
           </div>
         </article>
       </section>
-    </main>
-    <aside></aside>
-    <footer></footer>
+    </footer>
+    <script src="./js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="./js/scripts.js" type="text/javascript"></script>
   </body>
 </html>
