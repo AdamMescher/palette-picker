@@ -1,5 +1,141 @@
-h1 {
-  color: green;
-  font-size: 100px;
-  text-transform: uppercase;
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1fr, 5);
+  grid-template-rows: 15% 75% 10%;
+  grid-template-areas: "header header header header header header"
+                       "main main main main aside aside"
+                       "footer footer footer footer footer footer"
 }
+
+header {
+  grid-area: header;
+  background-color: blue;
+}
+
+main {
+  grid-area: main;
+  background-color: red;
+}
+
+.main-header-container {
+  background-color: teal;
+  height: 15%;
+  width: 100%;
+}
+
+.main-palette-generator-container {
+  display: flex;
+  background-color: brown;
+  height: 85%;
+  width: 100%;
+}
+
+.palette-card {
+  height: 225px;
+  width: 150px;
+  margin-left: 15px;
+  border-radius: 8px;
+}
+
+.palette-card:hover{
+   position: relative;
+   top: -3px;
+   
+   -webkit-box-shadow: 2px 26px 18px -11px rgba(0,0,0,0.68);
+  -moz-box-shadow: 2px 26px 18px -11px rgba(0,0,0,0.68);
+  box-shadow: 2px 26px 18px -11px rgba(0,0,0,0.68);
+}
+
+.palette-card-colors-container {
+  height: 75%;
+  display: flex;
+}
+
+.palette-card-title {
+  height: 25%;
+  background-color: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.palette-card-title span {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-one,
+.color-two,
+.color-three,
+.color-four,
+.color-five {
+  width: 20%;
+  text-align: center;
+}
+
+.color-one span,
+.color-two span,
+.color-three span,
+.color-four span,
+.color-five span {
+  display: none;
+}
+
+.color-one {
+  border-top-left-radius: 8px;
+  background-color: #3A606E;
+}
+
+.color-two {
+  background-color: #607B7D;
+}
+
+.color-three {
+  background-color: #828E82;
+}
+
+.color-four {
+  background-color: #AAAE8E;
+}
+
+.color-five {
+  border-top-right-radius: 8px;
+  background-color: #C1EDCC;
+}
+
+.color-one:hover,
+.color-two:hover,
+.color-three:hover,
+.color-four:hover,
+.color-five:hover {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.color-one:hover span,
+.color-two:hover span,
+.color-three:hover span,
+.color-four:hover span,
+.color-five:hover span {
+  display: block;
+}
+
+aside {
+  grid-area: aside;
+  background-color: green;
+}
+
+footer {
+  grid-area: footer;
+  background-color: purple;
+}
+
