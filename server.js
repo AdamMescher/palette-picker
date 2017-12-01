@@ -128,6 +128,6 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 });
 
-app.listen(3000, () => {
+app.listen(app.get('port'), () => {
   console.log('Express intro running on localhost:3000');
 });
