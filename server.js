@@ -7,12 +7,14 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
+app.set('port', process.env.PORT || 3000);
+
+app.locals.title = 'Palette Picker';
 
 const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/api/v1/projects', (request, response) => {
   database('projects').select()
