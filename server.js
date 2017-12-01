@@ -69,29 +69,30 @@ app.post('/api/v1/projects', (request, response) => {
     if (!project[requiredParameter]) {
       return response.status(422).json({ error: `You are missing the ${requiredParameter} property` });
     };
-    database('projects').insert(project, 'id')
-      .then(paper => response.status(201).json({ project }))
-      .catch(error => response.status(500).json({ error }))
   };
+  database('projects').insert(project, 'id')
+    .then(paper => response.status(201).json({ project }))
+    .catch(error => response.status(500).json({ error }))
 });
 
 app.post('/api/v1/projects/:id/palettes', (request, response) => {
   let palette = request.body;
   const id = request.params.id;
   
-  for (let requiredParameter of ['name', 'color_one', 'color_two', 'color_three', 'color_four', 'color_five']){
+  for (let requiredParameter of ['name', 'project_id', 'color_one', 'color_two', 'color_three', 'color_four', 'color_five']){
     if(!palette[requiredParameter]){
       return response.status(422).json({ error: `You are missing the ${requiredParameter} property` });
     };
-    palette = Object.assign({}, palette, { project_id: id });
-    database('palettes').insert(palette, 'id')
-      .then(palette => response.status(201).json({ id: palette[0] }))
-      .catch(error => response.status(500).json({ error }));
-  };
+  }
+  palette = Object.assign({}, palette, { project_id: id });
+  database('palettes').insert(palette, 'id')
+    .then(palette => response.status(201).json({ id: palette[0] }))
+    .catch(error => response.status(500).json({ error }));
 });
 
 app.patch('/api/v1/projects/:id', (request, response) => {
-
+  const attemptedProjectEdit = request.body;
+  const id = request.params.id;
 });
 
 app.patch('/api/v1/projects/:projectID/palette/:paletteID', (request, response) => {

@@ -8,82 +8,58 @@
   <body>
     <header>
       <section class="logo-container">
-        <article class="logo-icon">
-          <img src="./assets/icons/icon-five-blade-aperture-logo-bright.svg" alt="logo" />
-        </article>
         <article class="logo-wordmark">
           <span>palette picker</span>
         </article>
       </section>
     </header>
     <main>
-        <section class="color-generator-container">
-          <img class="cg-apeture" src="./assets/icons/icon-five-blade-aperture-logo-blue.svg" alt="thing" />
-          <button class="cg-generate-new-palette-button"></button>
-          <img class="cg-arrows-icon" src="./assets/icons/icon-arrows-white-outline.svg" alt="icon of arrows in a circle" />
+      <section class="color-generator-forms">
+        <h3>Create New Palette</h3>
+        <form>
+          <input class="cg-form-palette-name-input" type="text" placeholder="Palette name" />
+          <select class="cg-form-project-select"></select>
+          <button class="cg-form-add-palette-button"></button>
+        </form>
+        <form class="">
+          <h3>Create New Project</h3>
+          <input class="cg-form-project-name-input" type="text" placeholder="Project name" />
+          <button class="cg-form-add-project-button"></button>
+        </form>
+      </section>
+      <section class="color-generator-container">
+        <svg class="cg-aperture" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.6 82.6">
+          <path class="cg-aperture-1" d="M76.6 62.8L48.5 24.2 73.9 16C84.5 29.5 85.5 48.2 76.6 62.8z" />
+          <path class="cg-aperture-2" d="M27.3 2.5v26.7l45.4-14.8C61.5 1.4 43.4-3.4 27.3 2.5z" />
+          <path class="cg-aperture-3" d="M25.4 3.2v47.7L0 42.7C-0.5 25.5 9.6 9.8 25.4 3.2z" />
+          <path class="cg-aperture-4" d="M0.1 44.6l45.4 14.8L29.8 81C13.3 76.2 1.5 61.8 0.1 44.6z" />
+          <path class="cg-aperture-5" d="M31.7 81.5l28.1-38.6 15.7 21.6C65.9 78.7 48.5 85.5 31.7 81.5z" />
+        </svg>
+        <button class="cg-generate-new-palette-button"></button>
+      </section>
+      <section class="color-lock-container">
+        <article class="color-one-lock">
+          <button class="color-lock-button"></button>
+        </article>
+        <article class="color-two-lock">
+          <button class="color-lock-button"></button>
+        </article>
+        <article class="color-three-lock">
+          <button class="color-lock-button"></button>
+        </article>
+        <article class="color-four-lock">
+          <button class="color-lock-button"></button>
+        </article>
+        <article class="color-five-lock">
+          <button class="color-lock-button"></button>
+        </article>
       </section>
     </main>
     <footer>
       <section class="add-project-container">
-        <button class="add-project-button">
-          <img src="./assets/icons/icon-plus-button.svg" alt="circle with plus sign in center" />
-        </button>
+        <button class="add-project-button"></button>
       </section>
       <section class="all-projects-container">
-        <article class="project-card">
-          <div class="project-card-container">
-            <div class="palette-card">
-              <div class="palette-card-colors-container">
-                <div class="color-one">
-                  <span>#3A606E</span>
-                </div>
-                <div class="color-two">
-                  <span>#607B7D</span>
-                </div>
-                <div class="color-three">
-                  <span>#838E82</span>
-                </div>
-                <div class="color-four">
-                  <span>#AAAE8E</span>
-                </div>
-                <div class="color-five">
-                  <span>#C1EDCC</span>
-                </div>
-              </div>
-              <div class="palette-card-title">
-                <span>Palette Title</span>
-              </div>
-            </div>
-            <div class="palette-card">
-              <div class="palette-card-colors-container">
-                <div class="color-one">
-                  <span>#3A606E</span>
-                </div>
-                <div class="color-two">
-                  <span>#607B7D</span>
-                </div>
-                <div class="color-three">
-                  <span>#838E82</span>
-                </div>
-                <div class="color-four">
-                  <span>#AAAE8E</span>
-                </div>
-                <div class="color-five">
-                  <span>#C1EDCC</span>
-                </div>
-              </div>
-              <div class="palette-card-title">
-                <span>Palette Title</span>
-              </div>
-            </div>
-            <div class="project-card-add-new-pallete">
-              <button class="add-palette-to-project-button"></button>
-            </div>
-          </div>
-          <div class="project-card-title">
-            <span>Project Title</span>
-          </div>
-        </article>
       </section>
     </footer>
     <script src="./js/jquery-3.2.1.js" type="text/javascript"></script>

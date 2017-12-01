@@ -7,9 +7,10 @@ exports.seed = (knex, Promise) => {
           name: 'popular palettes'
         }, 'id')
         .then(paper => {
+          console.log('CREATED PALETTES');
           return knex('palettes').insert([
             {
-              project_id: 1,
+              project_id: 7,
               name: 'retro',
               color_one: '7DBEA5',
               color_two: 'F1E0B1',
@@ -18,7 +19,7 @@ exports.seed = (knex, Promise) => {
               color_five: '5A392B'
             },
             {
-              project_id: 1,
+              project_id: 7,
               name: 'cold sunset',
               color_one: '8F9DB2',
               color_two: 'B0BAC8',
@@ -27,7 +28,7 @@ exports.seed = (knex, Promise) => {
               color_five: 'CD998B'
             },
             {
-              project_id: 1,
+              project_id: 7,
               name: 'Flat UI',
               color_one: '2C3E50',
               color_two: 'E74C3C',
