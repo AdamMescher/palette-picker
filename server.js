@@ -29,7 +29,7 @@ app.get('/api/v1/projects/:id', (request, response) => {
         return response.status(200).json({ project: project[0] });
       } else {
         return response.status(404).json({
-          error: `Could not find any projects with id of ${request.params.id}`
+          error: `Could not find any projects with id '${request.params.id}'`
         });
       }
     })
@@ -43,7 +43,7 @@ app.get('/api/v1/projects/:id/palettes', (request, response) => {
         return response.status(200).json({ palettes });
       } else {
         return response.status(404).json({
-          error: `Could not find any palettes with a project_id of ${response.params.id}`
+          error: `Could not find any palettes with project_id '${response.params.id}'`
         });
       }
     })
@@ -57,7 +57,7 @@ app.get('/api/v1/projects/:projectID/palettes/:paletteID', (request, response) =
         return response.status(200).json({ palette: palette[0] });
       } else {
         return response.status(404).json({
-          error: `Could not find a palette with project_id of ${response.params.projectID} and palette_id of ${response.params.paletteID}`
+          error: `Could not find a palette with project_id '${response.params.projectID}' and palette_id '${response.params.paletteID}'`
         });
       }
     })
@@ -69,11 +69,20 @@ app.post('/api/v1/projects', (request, response) => {
   
   for (let requiredParameter of ['name']) {
     if (!project[requiredParameter]) {
-      return response.status(422).json({ error: `You are missing the ${requiredParameter} property` });
+      return response.status(422).json({ error: `You are missing the '${requiredParameter}' property` });
     };
   };
-  database('projects').insert(project, 'id')
-    .then(paper => response.status(201).json({ project }))
+
+  database('projects').where({name: project.name}).select().first()
+    .then(res => {
+      if(!res){
+        database('projects').insert(project, 'id')
+          .then(project => response.status(201).json({ project }))
+          .catch(error => response.status(500).json({ error }))
+      } else {
+        return response.status(422).json({ error: `A palette with title '${project.name}' already exists` });
+      }
+    })
     .catch(error => response.status(500).json({ error }))
 });
 
@@ -83,12 +92,21 @@ app.post('/api/v1/projects/:id/palettes', (request, response) => {
   
   for (let requiredParameter of ['name', 'project_id', 'color_one', 'color_two', 'color_three', 'color_four', 'color_five']){
     if(!palette[requiredParameter]){
-      return response.status(422).json({ error: `You are missing the ${requiredParameter} property` });
+      return response.status(422).json({ error: `You are missing the '${requiredParameter}' property` });
     };
   }
-  palette = Object.assign({}, palette, { project_id: id });
-  database('palettes').insert(palette, 'id')
-    .then(palette => response.status(201).json({ id: palette[0] }))
+
+  database('palettes').where({ name: palette.name }).select().first()
+    .then(res => {
+      if (!res) {
+        palette = Object.assign({}, palette, { project_id: id });
+        database('palettes').insert(palette, 'id')
+          .then(palette => response.status(201).json({ id: palette[0] }))
+          .catch(error => response.status(500).json({ error }));
+      } else {
+        return response.status(422).json({ error: `A palette with title '${palette.name}' already exists`});
+      }
+    })
     .catch(error => response.status(500).json({ error }));
 });
 
