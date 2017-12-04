@@ -37,7 +37,7 @@ const postPaletteToProjectAndAppendCard = (name, projectID, colors) => {
   };
   const fetchPayload = buildPostFetchPayload(fetchBody);
 
-  fetch(`http://localhost:3000/api/v1/projects/${projectID}/palettes`, fetchPayload)
+  fetch(`/api/v1/projects/${projectID}/palettes`, fetchPayload)
     .then(response => response.json())
     .then(id => {
       const palette = Object.assign({}, fetchBody, id);
@@ -50,7 +50,7 @@ const postProjectAndAppendProjectCard = projectName => {
   const fetchBody = {name: projectName};
   const fetchPayload = buildPostFetchPayload(fetchBody);
 
-  fetch(`http://localhost:3000/api/v1/projects`, fetchPayload)
+  fetch(`/api/v1/projects`, fetchPayload)
     .then(response => response.json())
     .then(id => {
       const project = {
@@ -66,14 +66,14 @@ const postProjectAndAppendProjectCard = projectName => {
 const deletePaletteFromProject = (paletteID, projectID) => {
   const fetchPayload = buildDeleteFetchPayload();
 
-  fetch(`http://localhost:3000/api/v1/projects/${projectID}/palettes/${paletteID}`, fetchPayload)
+  fetch(`/api/v1/projects/${projectID}/palettes/${paletteID}`, fetchPayload)
   .catch(error => { error });
 }
 
 const deleteProject = projectID => {
   const fetchPayload = buildDeleteFetchPayload();
 
-  fetch(`http://localhost:3000/api/v1/projects/${projectID}`, fetchPayload)
+  fetch(`/api/v1/projects/${projectID}`, fetchPayload)
   .catch(error => { error });
 }
 
@@ -242,12 +242,12 @@ const appendPaletteCard = (projectID, palette) => {
 };
 
 const getProjectsFromPostgres = () => {
-  fetch('http://localhost:3000/api/v1/projects/')
+  fetch('/api/v1/projects/')
     .then(response => response.json())
     .then(response => response.projects.map(project => {
       appendProjectNamesToSelect(project);
       appendProjectCard(project);
-      fetch(`http://localhost:3000/api/v1/projects/${project.id}/palettes`)
+      fetch(`/api/v1/projects/${project.id}/palettes`)
         .then(response => response.json())
         .then(response => response.palettes.map(palette => {
           appendPaletteCard(project.id, palette);
