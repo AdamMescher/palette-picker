@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "css": "sass --watch public/scss:public/css",
     "start": "node server.js"
   },
@@ -17,5 +17,10 @@
     "knex": "^0.14.2",
     "normalize.css": "^7.0.0",
     "pg": "^7.4.0"
+  },
+  "devDependencies": {
+    "chai-http": "git+https://github.com/chaijs/chai-http.git#3ea4524",
+    "mocha": "^4.0.1",
+    "mocha-http": "^0.2.5"
   }
 }
