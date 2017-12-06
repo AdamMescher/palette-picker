@@ -20,6 +20,7 @@
     "pg": "^7.4.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "chai-http": "git+https://github.com/chaijs/chai-http.git#3ea4524",
     "mocha": "^4.0.1",
     "mocha-http": "^0.2.5"
