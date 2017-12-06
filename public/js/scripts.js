@@ -92,11 +92,9 @@ const buildDeleteFetchPayload = () => ({
   method: "DELETE"
 });
 
-const paletteCardClick = () => console.log('card clicked');
-
 $('.add-project-button').on('click', addProjectButtonClick);
 $('.cg-generate-new-palette-button').on('click', generateNewPaletteButtonClick);
-$('.palette-card').on('click', paletteCardClick);
+// $('.palette-card').on('click', paletteCardClick);
 $('.cg-form-add-palette-button').on('click', addNewPaletteToProjectButtonClick);
 $('.cg-form-palette-name-input').keyup(function() {
   if ($(this).val() !== '') {
@@ -205,14 +203,12 @@ const appendProjectCardFromUser = project => {
         <button class="delete-project-card-button"></button>
       </div>
     </article>`);
-}
-
+};
 const appendProjectNamesToSelect = project => {
   $('.cg-form-project-select').append(`
     <option class="option-project-id-${project.id}">${project.name}</option>
   `)
-}
-
+};
 const appendPaletteCard = (projectID, palette) => {
   $(`#project-id-${projectID}`).append(
     `<div class="palette-card" id="palette-id-${palette.id}">
@@ -240,7 +236,6 @@ const appendPaletteCard = (projectID, palette) => {
     </div>`
   );
 };
-
 const getProjectsFromPostgres = () => {
   fetch('/api/v1/projects/')
     .then(response => response.json())
@@ -257,15 +252,13 @@ const getProjectsFromPostgres = () => {
     }))
     .catch(error => { error });
 };
-
 const updatePaletteCardBackgroundColors = palette => {
   $(`#palette-id-${palette.id}`).find('.color-one').css('background-color', `#${palette.color_one}`);
   $(`#palette-id-${palette.id}`).find('.color-two').css('background-color', `#${palette.color_two}`);
   $(`#palette-id-${palette.id}`).find('.color-three').css('background-color', `#${palette.color_three}`);
   $(`#palette-id-${palette.id}`).find('.color-four').css('background-color', `#${palette.color_four}`);
   $(`#palette-id-${palette.id}`).find('.color-five').css('background-color', `#${palette.color_five}`);
-}
-
+};
 const updateCurrentColors = colors => currentColors = colors;
 
 // ON PAGE LOAD
@@ -274,10 +267,9 @@ changeApertureColors();
 changeLockColors(currentColors);
 
 // APPEND PROJECTS TO SELECT
-
 const appendProjectToSelect = project => {
   $('.cg-form-project-select').append(`<option class="option-project-id-${project.id.project[0]}">${project.name}</option>`);
-}
+};
 
 // ANIMATIONS
 const rotateArrows = () => {
