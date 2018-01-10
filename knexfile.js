@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/palettepicker',
+    connection: 'postgres://localhost/palette_picker',
     migrations: {
       directory: './db/migrations'
     },
@@ -20,7 +20,7 @@ module.exports = {
   },
   test: {
     client: 'pg',
-    connection: process.env.DATABASE_URL || 'postgres://localhost/palettepicker_test',
+    connection: process.env.DATABASE_URL || 'postgres://localhost/palette_picker_test',
     migrations: {
       directory: './db/migrations'
     },
