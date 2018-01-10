@@ -35,18 +35,15 @@ describe('Client Routes', () => {
 
 describe('API Routes', () => {
   before((done) => {
+    console.log('database: ', database());
     database.migrate.latest()
       .then(() => done())
-      .catch(error => {
-        throw error;
-      });
+      .catch(error => { throw error; });
   });
   beforeEach((done) => {
     database.seed.run()
       .then(() => done())
-      .catch(error => {
-        throw error;
-      });
+      .catch(error => { throw error; });
   });
 
   it('GET /api/v1/projects should return all of the projects', () => {

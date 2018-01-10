@@ -30,7 +30,7 @@ const database = require('knex')(configuration);
 app.get('/api/v1/projects', (request, response) => {
   database('projects').select()
     .then(projects => response.status(200).json({ projects }))
-    .catch(error => resopnse.status(500).json({ error }))
+    .catch(error => response.status(500).json({ error }))
 });
 
 app.get('/api/v1/projects/:id', (request, response) => {
@@ -149,16 +149,18 @@ app.delete('/api/v1/projects/:projectID/palettes/:paletteID', (request, response
 });
 
 app.use(function (req, res, next) {
-  res.status(404).send("404: Sorry can't find that!")
+  res.status(404).send("404: Sorry can't find that!");
+  res.end();
 });
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)
-  res.status(500).send('Something broke!')
+  res.status(500).send('Something broke!');
+  res.end();
 });
 
 app.listen(app.get('port'), () => {
-  console.log('Express intro running on localhost:3000');
+  console.log(`${app.locals.title} is running on port ${app.get('port')}`);
 });
 
 module.exports = app;
