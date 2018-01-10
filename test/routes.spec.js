@@ -48,8 +48,11 @@ describe('API Routes', () => {
         throw error;
       });
   });
+  describe('GET /api/v1/projects', () => {
 
-  it('GET /api/v1/projects should return all of the projects', () => {
+  })
+
+  it('should return all of the projects', () => {
     return chai.request(server)
       .get('/api/v1/projects')
       .then(response => {
