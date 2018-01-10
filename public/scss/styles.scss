@@ -443,9 +443,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('../assets/icons/icon-unlock-white.svg');
+  background-image: url('../assets/icons/icon-unlock-circle-white.svg');
     background-repeat: no-repeat;
-    background-size: 40% 40%;
+    background-size: 50% 50%;
     background-position: 50% 90%;
 }
 
@@ -458,5 +458,5 @@ footer {
 }
 
 .locked {
-  background-image: url('../assets/icons/icon-lock-grey.svg');
+  background-image: url('../assets/icons/icon-lock-circle-white.svg');
 }
