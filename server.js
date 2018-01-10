@@ -88,7 +88,7 @@ app.post('/api/v1/projects', (request, response) => {
     .then(res => {
       if(!res){
         database('projects').insert(project, 'id')
-          .then(project => response.status(201).json({ project }))
+          .then(project => response.status(201).json({ id: project[0] }))
           .catch(error => response.status(500).json({ error }))
       } else {
         return response.status(422).json({ error: `A palette with title '${project.name}' already exists` });
@@ -135,8 +135,13 @@ app.delete('/api/v1/projects/:id', (request, response) => {
   
   database('palettes').where('project_id', id).del()
     .then(() => database('projects').where('id', id).del())
-    .then(() => response.status(204).json({ id }))
-    .catch(error => response.json({ error: `Could not find a project with id of ${id}` }))
+    .then(res => {
+      if(res.length){
+        return response.status(204).json({ id })
+      }
+      return response.status(404).json({ error: `Could not find a project with id of ${id}` })
+    })
+    .catch(error => response.status(500).json({ error }));
 });
 
 app.delete('/api/v1/projects/:projectID/palettes/:paletteID', (request, response) => {
@@ -144,8 +149,13 @@ app.delete('/api/v1/projects/:projectID/palettes/:paletteID', (request, response
   const paletteID = request.params.paletteID;
 
   database('palettes').where('id', paletteID).del()
-    .then(() => response.status(204).json({ paletteID }))
-    .catch(error => response.status(404).json({ error: `Could not find a palette with project_id of ${projectID} and id of ${id}` }))
+    .then(res => {
+      if (res.length) {
+        return response.status(204).json({ paletteID })
+      }
+      return response.status(404).json({ error: `Could not find a palette with project_id of ${projectID} and id of ${id}` });
+    })
+    .catch(error => response.status(500).json({ error }));
 });
 
 app.use(function (req, res, next) {
