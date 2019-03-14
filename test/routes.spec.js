@@ -289,7 +289,7 @@ describe('API Routes', () => {
         })
         .catch(error => { throw error; });
     });
-    it.only('should return 500 if project or palette do not exist', () => {
+    it('should return 500 if project or palette do not exist', () => {
       return chai.request(server)
         .delete('/api/v1/projects/999/palettes/8')
         .then(response => {
