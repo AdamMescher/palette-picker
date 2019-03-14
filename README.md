@@ -16,6 +16,16 @@ Backend: Node, Express, Knex, PostgreSQL
 
 ## Set up the development environment
 
+### Available Scripts
+
+`npm start` - starts the project on the default port of localhost:3000
+`npm test` - runs all tests
+`npm run css` - starts watching sass files
+`npm run lint` - runs the linter
+
+
+### First Time Setup
+
 1. Clone or download the repository and open the terminal in the newly created `palette-picker` directory
 
 2. `$ npm install` - installs all necessary packages locally
