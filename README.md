@@ -9,6 +9,10 @@ Frontend: HTML, CSS, and jQuery
 
 Backend: Node, Express, Knex, PostgreSQL
 
+#### DB Schema
+
+![](https://raw.githubusercontent.com/AdamMescher/palette-picker/master/public/assets/images/db-schema.png)
+
 
 ## Set up the development environment
 
