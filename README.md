@@ -3,6 +3,13 @@
 
 A user should be able to come to the site, generate a color palette, and save it for their own future projects.
 
+### Technology
+
+Frontend: HTML, CSS, and jQuery
+
+Backend: Node, Express, Knex, PostgreSQL
+
+
 ## Set up the development environment
 
 1. Clone or download the repository and open the terminal in the newly created `palette-picker` directory
