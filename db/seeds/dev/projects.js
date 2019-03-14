@@ -14,7 +14,7 @@ exports.seed = (knex, Promise) => {
               name: 'retro',
               color_one: '7DBEA5',
               color_two: 'F1E0B1',
-              color_three: 'EE9D31', 
+              color_three: 'EE9D31',
               color_four: 'F26C1A',
               color_five: '5A392B'
             },
