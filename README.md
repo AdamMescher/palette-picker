@@ -19,8 +19,11 @@ Backend: Node, Express, Knex, PostgreSQL
 ### Available Scripts
 
 `npm start` - starts the project on the default port of localhost:3000
+
 `npm test` - runs all tests
+
 `npm run css` - starts watching sass files
+
 `npm run lint` - runs the linter
 
 
