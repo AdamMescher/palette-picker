@@ -26,4 +26,10 @@ Backend: Node, Express, Knex, PostgreSQL
 * `$ CREATE DATABASE palette_picker;`
 * `$ CREATE DATABASE palette_picker_test;`
 
-4. `$ npm start` - runs the command `node sever.js` to start the application at http://localhost:3000/
+4. `$ npm i -g knex` - installs `knex` globally
+
+5. `$ knex migrate:latest` - runs all migrations to the latest point
+
+6. `$ knex seed:run` - populates the database with test data
+
+7. `$ npm start` - runs the command `node sever.js` to start the application at http://localhost:3000/
