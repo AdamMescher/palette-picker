@@ -20,4 +20,10 @@ Backend: Node, Express, Knex, PostgreSQL
 
 2. `$ npm install` - installs all necessary packages locally
 
-3. `$ npm start` - runs the command `node sever.js` to start the application at http://localhost:3000/
+3. Create necessary postgres databases
+
+* `$ psql`
+* `$ CREATE DATABASE palette_picker;`
+* `$ CREATE DATABASE palette_picker_test;`
+
+4. `$ npm start` - runs the command `node sever.js` to start the application at http://localhost:3000/
